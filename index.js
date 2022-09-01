@@ -67,7 +67,7 @@ async function startisman() {
     const isman = ismanConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['isman Multi Device','Safari','1.0.0'],
+        browser: ['Isman-Bot-Indonesia','Safari','1.0.0'],
         auth: state
     })
 
@@ -210,7 +210,7 @@ async function startisman() {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await isman.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await isman.getName(i + '@s.whatsapp.net')}\nFN:${await isman.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Ponsel\nitem2.EMAIL;type=INTERNET:okeae2410@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://instagram.com/cak_haho\nitem3.X-ABLabel:Instagram\nitem4.ADR:;;Indonesia;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await isman.getName(i + '@s.whatsapp.net')}\nFN:${await isman.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Ponsel\nitem2.EMAIL;type=INTERNET:ismantm08@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://instagram.com/IsmanFF\nitem3.X-ABLabel:Instagram\nitem4.ADR:;;Indonesia;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	isman.sendMessage(jid, { contacts: { displayName: `${list.length} Kontak`, contacts: list }, ...opts }, { quoted })
