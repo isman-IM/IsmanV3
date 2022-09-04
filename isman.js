@@ -2204,12 +2204,24 @@ break
                 isman.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            case 'tiktoknowm': {
-            if (args.length == 1) return fluser.reply(from, 'linknya mana?', id)
-            const tiktok = await axios. get('http://api.areltiyan.xyz/tiktokwm?link=5{body.slice(12)}')
-            await iluser. sendFileFromUrl(from, tiktok.data.no_watermark_link, '', 'nih Bosss', id)
+            case 'tiktokwm': case 'tiktokwatermark': {
+                if (!text) throw 'Masukkan Query Link!'
+                m.reply(mess.wait)
+                let anu = await fetchJson(api('zenz', '/downloader/tiktok', { url: text }, 'apikey'))
+                let buttons = [
+                    {buttonId: `tiktoknowm ${text}`, buttonText: {displayText: '► No Watermark'}, type: 1},
+                    {buttonId: `tiktokmp3 ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1}
+                ]
+                let buttonMessage = {
+                    video: { url: anu.result.watermark },
+                    caption: `Download From ${text}`,
+                    footer: 'Press The Button Below',
+                    buttons: buttons,
+                    headerType: 5
+                }
+                isman.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
-            break 
+            break
             case 'tiktokmp3': case 'tiktokaudio': {
                 if (!text) throw 'Masukkan Query Link!'
                 m.reply(mess.wait)
