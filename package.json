@@ -2,10 +2,10 @@
   "name": "ISMAN-BOT",
   "version": "1.2.3",
   "description": "WhatsApp Using Lib Baileys Multi Device",
-  "main": "index.js",
+  "main": "ismanofc.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ismanofc.js"
   },
   "keywords": [
     "termux",
